@@ -1,4 +1,3 @@
-// src/main/java/com/teamx/shopping/ShoppingApplication.java
 package com.teamx.shopping;
 
 import org.springframework.boot.SpringApplication;
@@ -6,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ShoppingApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ShoppingApplication.class, args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(ShoppingApplication.class, args);
+	}
+
 }
