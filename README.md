@@ -1,1 +1,1 @@
-# Enterprise Application Development Project - Frontend
+# Enterprise Application Development Project
