@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { productApi } from '../services/product/api';
+import { productService } from '../../services/product/ProductService';
 
-const ProductList = () => {
+const ProductView = () => {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const ProductList = () => {
 
     const loadProducts = async () => {
         try {
-            const response = await productApi.getAll();
+            const response = await productService.getAll();
             setProducts(response.data);
         } catch (error) {
             console.error('Error loading products:', error);
@@ -35,9 +35,9 @@ const ProductList = () => {
         e.preventDefault();
         try {
             if (selectedProduct) {
-                await productApi.update(selectedProduct.id, formData);
+                await productService.update(selectedProduct.id, formData);
             } else {
-                await productApi.create(formData);
+                await productService.create(formData);
             }
             setSelectedProduct(null);
             setFormData({ name: '', description: '', price: '', stockQuantity: '' });
@@ -54,7 +54,7 @@ const ProductList = () => {
 
     const handleDelete = async (id) => {
         try {
-            await productApi.delete(id);
+            await productService.delete(id);
             loadProducts();
         } catch (error) {
             console.error('Error deleting product:', error);
@@ -136,4 +136,4 @@ const ProductList = () => {
     );
 };
 
-export default ProductList;
+export default ProductView;
